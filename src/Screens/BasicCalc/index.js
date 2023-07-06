@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
-import { ResponsivePressable } from '../../Components';
+import { View, Text, Pressable } from 'react-native';
 
 import { styles } from './styles';
 
 const InputValue = ({ value }) => {
-  return (
-    <Text style={styles.input}>
-      {value}
-    </Text>
-  );
+  return <Text style={styles.input}>{value}</Text>;
 };
 
 export default function BasicCalcScreen() {
@@ -25,12 +19,12 @@ export default function BasicCalcScreen() {
   };
 
   const handleInput = (val) => {
-    setValue(prev => (prev === '0' ? val : prev + val));
+    setValue((prev) => (prev === '0' ? val : prev + val));
   };
 
   const handleDecimal = () => {
     if (!value.includes('.')) {
-      setValue(prev => prev + '.');
+      setValue((prev) => prev + '.');
     }
   };
 
@@ -38,23 +32,22 @@ export default function BasicCalcScreen() {
     setValue('0');
   };
 
-const handleTruncateAfterOperator = () => {
-  const operatorIndex = value.search(/[+\-*/]/);
-  if (operatorIndex >= 0) {
-    setValue(value.slice(0, operatorIndex + 1));
-  } else {
-    handleClear();
-  }
-};
+  const handleTruncateAfterOperator = () => {
+    const operatorIndex = value.search(/[+\-*/]/);
+    if (operatorIndex >= 0) {
+      setValue(value.slice(0, operatorIndex + 1));
+    } else {
+      handleClear();
+    }
+  };
 
   const handlePercent = () => {
-    setValue(prev => (parseFloat(prev) / 100).toString());
+    setValue((prev) => (parseFloat(prev) / 100).toString());
   };
 
   const handleOperation = (operator) => {
-    setValue(prev => prev + operator);
+    setValue((prev) => prev + operator);
   };
-
 
   const buttonRows = [
     [
@@ -94,8 +87,10 @@ const handleTruncateAfterOperator = () => {
 
       {buttonRows.map((row, i) => (
         <View key={i} style={styles.row}>
-          {row.map((buttonProps, j) => (
-            <ResponsivePressable key={j} {...buttonProps} />
+          {row.map(({ title, onPress }, j) => (
+            <Pressable key={j} style={styles.button} onPress={onPress}>
+              <Text style={styles.buttonText}>{title}</Text>
+            </Pressable>
           ))}
         </View>
       ))}

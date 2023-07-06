@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    backgroundColor: '#eee',
-    fontSize: 48,
+    backgroundColor: 'aqua',
+    fontSize: 60,
     textAlign: 'right',
     padding: 16,
   },
@@ -20,20 +20,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 20,
+    backgroundColor: 'mediumblue',
+    borderColor: 'white',
+    borderWidth: 1,
   },
   buttonText: {
     fontSize: 24,
     fontWeight: 'bold',
-  },
-  buttonPrimary: {
-    backgroundColor: 'white',
-  },
-  buttonSecondary: {
-    backgroundColor: '#a5a5a5',
-  },
-  buttonAccent: {
-    backgroundColor: '#f09a36',
-  },
+  }
 });
 
       
