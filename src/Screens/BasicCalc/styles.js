@@ -1,26 +1,38 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const screenWidth = Dimensions.get('window').width;
-const buttonWidth = screenWidth / 4 - 10;
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#eee',
+    fontSize: 48,
+    textAlign: 'right',
+    padding: 16,
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 10,
   },
   button: {
-    marginHorizontal: 5,
-    padding: 10,
-    backgroundColor: '#ddd',
-    borderRadius: 5,
-    width: buttonWidth,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+  buttonText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  buttonPrimary: {
+    backgroundColor: 'white',
+  },
+  buttonSecondary: {
+    backgroundColor: '#a5a5a5',
+  },
+  buttonAccent: {
+    backgroundColor: '#f09a36',
   },
 });
 
